@@ -39,7 +39,7 @@ grunt.initConfig({
 
 ### Options
 
-#### options.patten
+#### options.pattern
 Type: `RegExp`
 Required
 

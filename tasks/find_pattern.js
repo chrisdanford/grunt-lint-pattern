@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('find_pattern', 'Find a patter in files.  Error on a match.', function() {
+  grunt.registerMultiTask('find_pattern', 'Find a pattern in files.  Error on a match.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({});
 

@@ -45,8 +45,7 @@ module.exports = function(grunt) {
     });
 
     if (matchingFiles.length > 0) {
-      grunt.warn('The following files match the pattern.');
-      grunt.log.writeflags(matchingFiles, 'matches');
+      grunt.warn('The following files match the pattern: ' + matchingFiles.join(' '));
     }
   });
 };

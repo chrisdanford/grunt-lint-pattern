@@ -1,6 +1,6 @@
 # grunt-find-pattern
 
-> Find a pattern in files.  Error on a match.
+> Find a pattern in files.  Error if any match.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`

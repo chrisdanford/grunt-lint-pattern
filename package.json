@@ -1,7 +1,7 @@
 {
   "name": "grunt-find-pattern",
-  "description": "Find a pattern in files.  Error on a match.",
-  "version": "0.1.2",
+  "description": "Find a pattern in files.  Error if any match.",
+  "version": "0.1.3",
   "homepage": "https://github.com/chrisdanford/grunt-find-pattern",
   "author": {
     "name": "Chris Danford",

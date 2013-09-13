@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         },
         files: {
           src: [
-            'test/fixtures/testing'
+            'test/fixtures/testing*'
           ],
         },
       },
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         },
         files: {
           src: [
-            'test/fixtures/testing'
+            'test/fixtures/testing*'
           ],
         },
       },
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         options: {},
         files: {
           src: [
-            'test/fixtures/testing'
+            'test/fixtures/testing*'
           ],
         },
       },

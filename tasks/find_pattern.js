@@ -13,10 +13,15 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('find_pattern', 'Find a pattern in files.  Error on a match.', function() {
+  grunt.registerMultiTask('find_pattern', 'Find a pattern in files.  Error if any match.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({});
 
+    if (options.pattern === undefined) {
+      grunt.warn('The "pattern" option must be specified.');
+    }
+
+    var matchingFiles = [];
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
       // Concat specified files.
@@ -31,13 +36,17 @@ module.exports = function(grunt) {
       }).map(function(filepath) {
         // Read file source.
         var src = grunt.file.read(filepath);
-        if (!options.pattern) {
-          grunt.warn('The "pattern" option must be specified.');
-        }
-        if (src.match(options.pattern)) {
-          grunt.warn('File "' + filepath + '" matches the pattern.');
+        if (options.pattern !== undefined) {
+          if (src.match(options.pattern)) {
+            matchingFiles.push(filepath);
+          }
         }
       });
     });
+
+    if (matchingFiles.length > 0) {
+      grunt.warn('The following files match the pattern.');
+      grunt.log.writeflags(matchingFiles, 'matches');
+    }
   });
 };

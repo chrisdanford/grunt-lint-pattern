@@ -1,6 +1,6 @@
 /*
- * grunt-find-pattern
- * https://github.com/chrisdanford/grunt-find-pattern
+ * grunt-lint-pattern
+ * https://github.com/chrisdanford/grunt-lint-pattern
  *
  * Copyright (c) 2013 Chris Danford
  * Licensed under the MIT license.
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    find_pattern: {
+    lint_pattern: {
       matches: {
         options: {
           rules: [
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['find_pattern']);
+  grunt.registerTask('test', ['lint_pattern']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

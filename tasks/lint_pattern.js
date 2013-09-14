@@ -13,7 +13,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('lint_pattern', 'Find a pattern in files.  Error if any match.', function() {
+  grunt.registerMultiTask('lint_pattern', 'Search for patterns in files.  Error if any match.', function() {
     var i;
     var rule;
 

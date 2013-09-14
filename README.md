@@ -43,7 +43,7 @@ grunt.initConfig({
         rules: [
           {
             pattern: /moz-border-radius/;
-            message: 'Don't use vendor prefixes for the border-radius property.'
+            message: 'Do not use vendor prefixes for the border-radius property.'
           },
           {
             pattern: /!important/;
@@ -73,7 +73,7 @@ Required
 
 A RegExp that will be used to test files.
 
-##### pattern
+##### message
 Type: `string`
 Optional
 

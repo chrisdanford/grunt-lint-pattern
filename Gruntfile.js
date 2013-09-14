@@ -26,7 +26,16 @@ module.exports = function(grunt) {
     find_pattern: {
       matches: {
         options: {
-          pattern: /Testing/,
+          rules: [
+            {
+              pattern: /Debug/i,
+              message: "Debug isn't allowed.  Remove all references to Debug."
+            },
+            {
+              pattern: /Assert/i,
+              message: "Assert isn't allowed.  Remove all references to Assert."
+            },
+          ],
         },
         files: {
           src: [
@@ -36,7 +45,16 @@ module.exports = function(grunt) {
       },
       does_not_match: {
         options: {
-          pattern: /Turnip/,
+          rules: [
+            {
+              pattern: /Turnip/i,
+              message: "Turnip isn't allowed.  Use another vegetable."
+            },
+            {
+              pattern: /Beet/i,
+              message: "Beet isn't allowed.  Use another vegetable."
+            },
+          ],
         },
         files: {
           src: [

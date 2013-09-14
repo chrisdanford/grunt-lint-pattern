@@ -27,10 +27,32 @@ grunt.initConfig({
   find_pattern: {
     your_target: {
       options: {
-        pattern: /console\./;
+        rules: [
+          {
+            pattern: /console\./;
+            message: 'Calling "console." is not allowed.'
+          },
+        ],
       },
       files: {
         '**.js',
+      },
+    },
+    your_target: {
+      options: {
+        rules: [
+          {
+            pattern: /moz-border-radius/;
+            message: 'Don't use vendor prefixes for the border-radius property.'
+          },
+          {
+            pattern: /!important/;
+            message: 'Do not use "!important".'
+          },
+        ],
+      },
+      files: {
+        '**.css',
       },
     },
   },
@@ -39,11 +61,23 @@ grunt.initConfig({
 
 ### Options
 
-#### options.pattern
+#### options.rules
+Type: `Array`
+Required
+
+An array of "rules" that will be used to test files.  Rules have the form:
+
+##### pattern
 Type: `RegExp`
 Required
 
 A RegExp that will be used to test files.
+
+##### pattern
+Type: `string`
+Optional
+
+A message that will print when pattern is found.
 
 ### Usage Examples
 

@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.find_pattern = {
+exports.lint_pattern = {
   setUp: function(done) {
     // setup here if necessary
     done();

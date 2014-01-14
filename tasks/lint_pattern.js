@@ -46,23 +46,30 @@ module.exports = function(grunt) {
         }
       }).map(function(filepath) {
         // Read file source.
-        var src = grunt.file.read(filepath);
+        var srcLines = grunt.file.read(filepath).split(/\r?\n/);
         for (i = 0; i < options.rules.length; i++) {
           rule = options.rules[i];
           var matchingFilesForRule = matchingFiles[i];
-          if (src.match(rule.pattern)) {
-            matchingFilesForRule.push(filepath);
+          for (var ln = 0; ln < srcLines.length; ln++) {
+              var line = srcLines[ln];
+              if (line.match(rule.pattern)) {
+                matchingFilesForRule.push({ file: filepath, lineNumber: ln+1 });
+              }
           }
         }
       });
     });
+
+    function formatMatch(match) {
+        return match.file + ':' + match.lineNumber;
+    }
 
     for (i = 0; i < options.rules.length; i++) {
       rule = options.rules[i];
       var matchingFilesForRule = matchingFiles[i];
       if (matchingFilesForRule.length > 0) {
         var message = rule.message || 'The pattern ' + rule.pattern + 'is not allowed';
-        message += '\n' + matchingFilesForRule.join('\n') + '\n';
+        message += '\n' + matchingFilesForRule.map(formatMatch).join('\n') + '\n';
         grunt.fail.warn(message);
       }
     }

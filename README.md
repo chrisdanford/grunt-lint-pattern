@@ -71,7 +71,7 @@ An array of "rules" that will be used to test files.  Rules have the form:
 Type: `RegExp`
 Required
 
-A RegExp that will be used to test files.
+`.test` will be called on this regular expression with the entire contents of a single file as the argument.  This is not called once per line of a file.
 
 ##### message
 Type: `string`

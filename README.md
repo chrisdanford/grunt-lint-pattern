@@ -71,7 +71,7 @@ An array of "rules" that will be used to test files.  Rules have the form:
 Type: `RegExp`
 Required
 
-`.test` will be called on this regular expression with the entire contents of a single file as the argument.  This is not called once per line of a file.
+`.test` will be called on this regular expression with the entire contents of a single file as the argument (This is not called once per line of a file).  If the result of `.test` is true, then the rule is failed and an error is raised.
 
 ##### message
 Type: `string`

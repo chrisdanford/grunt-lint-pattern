@@ -35,7 +35,9 @@ grunt.initConfig({
         ],
       },
       files: {
-        '**.js',
+        src: [
+            '**.js',
+        ]
       },
     },
     your_target: {
@@ -52,7 +54,9 @@ grunt.initConfig({
         ],
       },
       files: {
-        '**.css',
+        src: [
+            '**.css',
+        ]
       },
     },
   },
